@@ -25,10 +25,19 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                    <a class="nav-link" href="#">Add Customer Data <span class="sr-only">(current)</span></a>
+                    {% if app.user %}
+                    
+                        <a class="nav-link">Logged in as {{ app.user.username }}</a>
+                    
+                    {% endif %}
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="#">Login</a>
+                    {% if not app.user %}
+                        <a class="nav-link" href="/login">Login</a>
+                    {% endif %}
+                    {% if app.user %}
+                       <a class="nav-link" href="{{ path('app_logout') }}">Logout</a>
+                    {% endif %}
                     </li>
       
                 </ul>
