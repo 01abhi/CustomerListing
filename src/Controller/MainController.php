@@ -75,4 +75,19 @@ class MainController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/delete/{id}", name="delete")
+     */
+    public function delete($id){
+        $data = $this->getDoctrine()->getRepository(CustomerData::class)->find($id);
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($data);
+        $em->flush();
+
+        $this->addFlash('notice','Customer Deleted Successfully');
+
+        return $this->redirectToRoute('main');
+
+    }
+
 }
