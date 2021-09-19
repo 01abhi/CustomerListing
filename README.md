@@ -16,4 +16,4 @@
 
 # .env
 1. DATABASE_URL=mysql://db_user:db_password@127.0.0.1:3306/db_name. 
-   Change the database configuration for msysql username,password and database name.
+   Change the database configuration for mysql username,password and database name.
