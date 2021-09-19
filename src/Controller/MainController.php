@@ -13,12 +13,14 @@ use Symfony\Component\Routing\Annotation\Route;
 class MainController extends AbstractController
 {
     /**
-     * @Route("/main", name="main")
+     * @Route("/", name="main")
      */
+    
     public function index(): Response
-    {
+    {   
+        $data = $this->getDoctrine()->getRepository(CustomerData::class)->findAll();
         return $this->render('main/index.html.twig', [
-            'controller_name' => 'MainController',
+            'list' => $data
         ]);
     }
 
