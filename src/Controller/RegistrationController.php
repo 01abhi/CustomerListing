@@ -33,10 +33,10 @@ class RegistrationController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
-            
+
             $this->addFlash(
                 'success',
-                'Registration Successfull'
+                'Registration Successful'
              );
             return $this->redirectToRoute('app_login');
         }
