@@ -4,6 +4,10 @@
 3. Displaying Customer data lists publicly
 4. Editing/Deleting the existing customer data.
 
+# Pre-requisites to run this application.
+1. PHP 7.2.5 or higher along with these PHP extensions Ctype, iconv, JSON, PCRE, Session, SimpleXML, and Tokenizer should be installed.
+2. Composer and MYSQL should be installed.
+
 # Installation of dependencies and starting the server.
 1. $ cd clists
 2. $ composer install
@@ -12,4 +16,4 @@
 
 # .env
 1. DATABASE_URL=mysql://db_user:db_password@127.0.0.1:3306/db_name. 
-   Change the database configuration for msqsl username,password and configuration.
+   Change the database configuration for msysql username,password and database name.
