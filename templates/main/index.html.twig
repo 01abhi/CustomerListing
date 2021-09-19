@@ -30,7 +30,7 @@
                 <td>{{ data.customertype }}</td>
                 {% if app.user %}
                 <td>
-                    <a class="btn btn-warning" href="#">Update</a>
+                    <a class="btn btn-warning" href="{{ path('update',{'id': data.id }) }}">Update</a>
                     <a class="btn btn-danger" href="#">Delete</a>
                 </td>
                 {% endif %}

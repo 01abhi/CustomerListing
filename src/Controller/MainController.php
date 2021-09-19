@@ -50,4 +50,29 @@ class MainController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/update/{id}", name="update")
+     */
+
+    public function update(Request $request, $id){
+        
+        $customerdata = $this->getDoctrine()->getRepository(CustomerData::class)->find($id);
+        $form = $this->createForm(CustomerDataType::class, $customerdata);
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()){
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($customerdata);
+            $em->flush();
+
+            $this->addFlash(
+               'notice',
+               'Updated Successfully'
+            );
+            return $this->redirectToRoute('main');
+        }
+        return $this->render('main/update.html.twig',[
+            'form' => $form->createView()
+        ]);
+    }
+
 }
